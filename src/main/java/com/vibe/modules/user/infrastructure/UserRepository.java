@@ -1,6 +1,6 @@
-package com.vibe.core.persistence;
+package com.vibe.modules.user.infrastructure;
 
-import com.vibe.modules.domain.model.User;
+import com.vibe.modules.user.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 

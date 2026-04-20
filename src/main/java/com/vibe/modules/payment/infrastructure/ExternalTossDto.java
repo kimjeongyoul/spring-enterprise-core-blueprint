@@ -1,4 +1,4 @@
-package com.vibe.core.external;
+package com.vibe.modules.payment.infrastructure;
 
 import lombok.Getter;
 

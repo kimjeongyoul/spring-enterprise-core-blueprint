@@ -1,4 +1,4 @@
-package com.vibe.modules.domain.model;
+package com.vibe.modules.user.domain;
 
 import com.vibe.core.entity.BaseAuditEntity;
 import jakarta.persistence.*;

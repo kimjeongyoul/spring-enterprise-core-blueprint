@@ -1,4 +1,4 @@
-package com.vibe.modules.domain.model;
+package com.vibe.modules.payment.domain;
 
 import lombok.Builder;
 import lombok.Getter;

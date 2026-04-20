@@ -1,8 +1,8 @@
-package com.vibe.modules.application.service;
+package com.vibe.modules.auth.application;
 
 import com.vibe.core.auth.JwtProvider;
-import com.vibe.core.persistence.UserRepository;
-import com.vibe.modules.domain.model.User;
+import com.vibe.modules.user.infrastructure.UserRepository;
+import com.vibe.modules.user.domain.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -36,5 +36,17 @@ public class AuthService {
                 .build();
         
         userRepository.save(user);
+    }
+
+    @Transactional(readOnly = true)
+    public String login(String userId, String password) {
+        User user = userRepository.findByUserId(userId)
+                .orElseThrow(() -> new GeneralBusinessException(ErrorCode.USER_NOT_FOUND));
+
+        if (!passwordEncoder.matches(password, user.getPassword())) {
+            throw new GeneralBusinessException(ErrorCode.INVALID_INPUT_VALUE);
+        }
+
+        return jwtProvider.createToken(user.getUserId(), user.getRole());
     }
 }

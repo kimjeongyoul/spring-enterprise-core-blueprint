@@ -1,4 +1,4 @@
-package com.vibe.modules.api.common;
+package com.vibe.modules.common.api;
 
 import com.vibe.core.dto.ApiErrorResponse;
 import com.vibe.core.storage.StorageProvider;
