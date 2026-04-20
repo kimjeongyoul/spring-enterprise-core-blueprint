@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: enterprise-core-blueprint
+  
+  # 기본적으로 활성화할 프로필 (보통 local)
+  profiles:
+    active: local
+
+  # 파일 업로드 표준 설정 (Multipart)
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
