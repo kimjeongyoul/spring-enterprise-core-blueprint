@@ -31,13 +31,13 @@ public class AppConfig {
 
     @Bean
     public OpenAPI openAPI() {
-        // 1. Client Key (Handshake) ?뺤쓽
+        // 1. Client Key (Handshake) 정의
         SecurityScheme clientKeyScheme = new SecurityScheme()
                 .type(SecurityScheme.Type.APIKEY)
                 .in(SecurityScheme.In.HEADER)
                 .name("X-VIBE-CLIENT-KEY");
 
-        // 2. JWT ?몄쬆 ?뺤쓽
+        // 2. JWT 인증 정의
         SecurityScheme jwtScheme = new SecurityScheme()
                 .type(SecurityScheme.Type.HTTP)
                 .scheme("bearer")
@@ -54,4 +54,3 @@ public class AppConfig {
                         .addSecuritySchemes("JWT", jwtScheme));
     }
 }
-

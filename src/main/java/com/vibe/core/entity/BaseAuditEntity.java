@@ -13,8 +13,8 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import java.time.LocalDateTime;
 
 /**
- * 紐⑤뱺 ?뷀떚?곗쓽 怨듯넻 湲곕컲 ?대옒??
- * ?앹꽦?? ?섏젙?? ?앹꽦?? ?섏젙?먮? ?먮룞?쇰줈 愿由ы빀?덈떎.
+ * 모든 엔티티의 공통 기반 클래스
+ * 생성일, 수정일, 생성자, 수정자를 자동으로 관리합니다.
  */
 @Getter
 @MappedSuperclass
@@ -35,4 +35,3 @@ public abstract class BaseAuditEntity {
     @LastModifiedBy
     private String updatedBy;
 }
-

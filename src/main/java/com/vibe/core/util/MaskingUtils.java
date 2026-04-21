@@ -5,8 +5,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.util.StringUtils;
 
 /**
- * [Security] 媛쒖씤?뺣낫 留덉뒪???좏떥由ы떚
- * OWASP 誘쇨컧 ?곗씠???몄텧 諛⑹?瑜??꾪빐 ?곗씠?곕? ?꾪꽣留곹빀?덈떎.
+ * [Security] 개인정보 마스킹 유틸리티
+ * OWASP 민감 데이터 노출 방지를 위해 데이터를 필터링합니다.
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class MaskingUtils {
@@ -28,4 +28,3 @@ public final class MaskingUtils {
         return name.charAt(0) + "*".repeat(name.length() - 2) + name.charAt(name.length() - 1);
     }
 }
-

@@ -5,8 +5,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * [Business] ?좎쭨 諛??쒓컙 怨듯넻 ?ы띁
- * ?⑥닚 ?좏떥由ы떚瑜??섏뼱, ?쒖뒪???꾩껜???쒓컙 洹쒓꺽???뺤쓽?⑸땲??
+ * [Business] 날짜 및 시간 공통 헬퍼
+ * 단순 유틸리티를 넘어, 시스템 전체의 시간 규격을 정의합니다.
  */
 @Component
 public class DateHelper {
@@ -25,4 +25,3 @@ public class DateHelper {
         return dateTime.withHour(23).withMinute(59).withSecond(59).withNano(999999999);
     }
 }
-

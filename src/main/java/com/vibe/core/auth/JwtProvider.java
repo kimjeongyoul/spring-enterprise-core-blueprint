@@ -12,8 +12,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 /**
- * [Production-Ready] JWT ?좏겙 愿由ъ옄
- * ?ㅻТ?먯꽌 利됱떆 ?ъ슜 媛?ν븳 ?좏겙 ?앹꽦 諛?寃利?濡쒖쭅?낅땲??
+ * [Production-Ready] JWT 토큰 관리자
+ * 실무에서 즉시 사용 가능한 토큰 생성 및 검증 로직입니다.
  */
 @Slf4j
 @Component
@@ -22,7 +22,7 @@ public class JwtProvider {
     @Value("${jwt.secret}")
     private String secretKeyPlain;
     private SecretKey secretKey;
-    private final long tokenValidityInMilliseconds = 3600000 * 24; // 24?쒓컙
+    private final long tokenValidityInMilliseconds = 3600000 * 24; // 24시간
 
     @PostConstruct
     protected void init() {
@@ -47,13 +47,13 @@ public class JwtProvider {
             Jwts.parserBuilder().setSigningKey(secretKey).build().parseClaimsJws(token);
             return true;
         } catch (SecurityException | MalformedJwtException e) {
-            log.error("?섎せ??JWT ?쒕챸?낅땲??");
+            log.error("잘못된 JWT 서명입니다.");
         } catch (ExpiredJwtException e) {
-            log.error("留뚮즺??JWT ?좏겙?낅땲??");
+            log.error("만료된 JWT 토큰입니다.");
         } catch (UnsupportedJwtException e) {
-            log.error("吏?먮릺吏 ?딅뒗 JWT ?좏겙?낅땲??");
+            log.error("지원되지 않는 JWT 토큰입니다.");
         } catch (IllegalArgumentException e) {
-            log.error("JWT ?좏겙???섎せ?섏뿀?듬땲??");
+            log.error("JWT 토큰이 잘못되었습니다.");
         }
         return false;
     }
@@ -63,4 +63,3 @@ public class JwtProvider {
                 .parseClaimsJws(token).getBody().getSubject();
     }
 }
-

@@ -23,9 +23,8 @@ public class LocalStorageProvider implements StorageProvider {
     }
 
     @Override
-    public void delete(String fileUrl) { /* 援ы쁽 ?앸왂 */ }
+    public void delete(String fileUrl) { /* 구현 생략 */ }
 
     @Override
     public byte[] download(String fileUrl) { return new byte[0]; }
 }
-

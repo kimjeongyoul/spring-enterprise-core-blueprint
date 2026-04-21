@@ -9,15 +9,15 @@ import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * [Technical] JSON 蹂???듯빀 ?좏떥由ы떚
+ * [Technical] JSON 변환 통합 유틸리티
  */
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class JsonUtils {
 
     private static final ObjectMapper mapper = new ObjectMapper()
-            .registerModule(new JavaTimeModule()) // Java 8 ?좎쭨 吏??
-            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS); // ISO-8601 ?뺤떇
+            .registerModule(new JavaTimeModule()) // Java 8 날짜 지원
+            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS); // ISO-8601 형식
 
     public static String toJson(Object obj) {
         try {
@@ -37,4 +37,3 @@ public final class JsonUtils {
         }
     }
 }
-

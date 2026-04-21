@@ -4,7 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 
 /**
- * ?쒖? ?먮윭 ?묐떟 媛앹껜
+ * 표준 에러 응답 객체
  */
 @Getter
 @Builder
@@ -12,4 +12,3 @@ public class ApiErrorResponse {
     private final String code;
     private final String message;
 }
-

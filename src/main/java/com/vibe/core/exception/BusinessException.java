@@ -3,10 +3,11 @@ package com.vibe.core.exception;
 import lombok.Getter;
 
 /**
- * 紐⑤뱺 鍮꾩쫰?덉뒪 ?덉쇅??理쒖긽??異붿긽 ?대옒??
+ * [Exception] 모든 비즈니스 예외의 최상위 추상 클래스
  */
 @Getter
 public abstract class BusinessException extends RuntimeException {
+
     private final ErrorCode errorCode;
 
     protected BusinessException(ErrorCode errorCode) {
@@ -19,4 +20,3 @@ public abstract class BusinessException extends RuntimeException {
         this.errorCode = errorCode;
     }
 }
-
